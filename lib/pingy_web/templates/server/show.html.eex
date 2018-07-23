@@ -1,0 +1,23 @@
+<h2>Show Server</h2>
+
+<ul>
+
+  <li>
+    <strong>Ip:</strong>
+    <%= @server.ip %>
+  </li>
+
+  <li>
+    <strong>Username:</strong>
+    <%= @server.username %>
+  </li>
+
+  <li>
+    <strong>Password:</strong>
+    <%= @server.password %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: server_path(@conn, :edit, @server) %></span>
+<span><%= link "Back", to: server_path(@conn, :index) %></span>
