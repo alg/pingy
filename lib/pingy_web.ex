@@ -40,6 +40,10 @@ defmodule PingyWeb do
       import PingyWeb.Router.Helpers
       import PingyWeb.ErrorHelpers
       import PingyWeb.Gettext
+
+      def date_time(time, tz) do
+        Timex.format!(Timex.Timezone.convert(time, tz), "%B %d, %H:%M", :strftime)
+      end
     end
   end
 

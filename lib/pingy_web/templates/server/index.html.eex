@@ -3,9 +3,8 @@
 <table class="table">
   <thead>
     <tr>
-      <th>Ip</th>
+      <th>IP</th>
       <th>Username</th>
-      <th>Password</th>
       <th>Free Mem</th>
       <th>Last Checked At</th>
 
@@ -17,12 +16,11 @@
     <tr>
       <td><%= server.ip %></td>
       <td><%= server.username %></td>
-      <td><%= server.password %></td>
-      <td><%= server.free_mem %></td>
-      <td><%= server.last_check_at %></td>
+      <td><%= Size.humanize!(server.free_mem) %></td>
+      <td><%= date_time(server.last_check_at, @tz) %></td>
 
       <td class="text-right">
-        <span><%= link "Check", to: server_path(@conn, :check, server), class: "btn btn-default btn-xs" %></span>
+        <span><%= link "Check", to: server_path(@conn, :check, server), method: :post, class: "btn btn-default btn-xs" %></span>
         <span><%= link "Edit", to: server_path(@conn, :edit, server), class: "btn btn-default btn-xs" %></span>
         <span><%= link "Delete", to: server_path(@conn, :delete, server), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %></span>
       </td>

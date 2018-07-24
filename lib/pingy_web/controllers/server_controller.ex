@@ -4,6 +4,8 @@ defmodule PingyWeb.ServerController do
   alias Pingy.Servers
   alias Pingy.Servers.Server
 
+  plug :set_timezone
+
   def index(conn, _params) do
     servers = Servers.list_servers()
     render(conn, "index.html", servers: servers)
@@ -69,5 +71,10 @@ defmodule PingyWeb.ServerController do
     conn
     |> put_flash(:info, "Server deleted successfully.")
     |> redirect(to: server_path(conn, :index))
+  end
+
+  defp set_timezone(conn, _) do
+    conn
+    |> assign(:tz, Timex.Timezone.get("Europe/Moscow"))
   end
 end

@@ -43,7 +43,8 @@ defmodule Pingy.Mixfile do
       {:cowboy, "~> 1.0"},
       {:sshex, "2.2.1"},
       {:quantum, "~> 2.2"},
-      {:timex, "~> 3.0"}
+      {:timex, "~> 3.0"},
+      {:size, "~> 0.1.0"}
     ]
   end
 

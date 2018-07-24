@@ -19,7 +19,7 @@ defmodule PingyWeb.Router do
     get "/", PageController, :index
 
     resources "/servers", ServerController
-    get "/servers/:id/check", ServerController, :check
+    post "/servers/:id/check", ServerController, :check
   end
 
   # Other scopes may use custom stacks.
